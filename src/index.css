@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Celibri";
+  src: url("/src//assets/fonts/calibri.ttf");
+}
+
+@font-face {
+  font-family: "Gothic";
+  src: url("/src//assets/fonts/gothic.ttf");
+}
+
+@layer base {
+  .header-quote {
+    font-family: "Celibri";
+  }
+
+  .quote-symbol {
+    font-family: "Gothic";
+  }
+}
