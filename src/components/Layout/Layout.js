@@ -8,7 +8,7 @@ const Layout = (props) => {
       <Header />
       <div className="">{props.children}</div>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

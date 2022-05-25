@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed w-full bg-primary text-primaryText">
+    <div className="fixed w-full bg-primary text-primaryText z-50">
       <div className="container h-12 mx-auto flex items-center justify-between ">
         <div className="brand-logo font-bold text-2xl px-3">Let's Cook</div>
 
