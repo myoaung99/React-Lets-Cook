@@ -2,8 +2,8 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/flowbite/**/*.js"],
   theme: {
     colors: {
-      primary: "#809A6F",
-      primaryDark: "#516445",
+      primary: "#6F9A70",
+      primaryDark: "#4a5e4a",
       primaryText: "#E9E9E9",
     },
     extend: {

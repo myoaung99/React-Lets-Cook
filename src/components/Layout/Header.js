@@ -1,17 +1,33 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const MobileMenu = () => {
   return (
-    <div className="fixed mx-auto w-full top-12 bg-primary text-black md:hidden">
+    <div className="fixed mx-auto w-full top-12 left-0 bg-primary text-black xl:hidden">
       <ul className="menu-list flex flex-col text-center items-stretch text-primaryText mb-2">
         <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <a href="">Home</a>
+          <NavLink
+            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
+            to="/home"
+          >
+            Home
+          </NavLink>
         </li>
         <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <a href="">Get Recipe</a>
+          <NavLink
+            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
+            to="/get-recipe"
+          >
+            Get Recipe
+          </NavLink>
         </li>
         <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <a href="">Fun Facts</a>
+          <NavLink
+            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
+            to="/###"
+          >
+            Fun Facts
+          </NavLink>
         </li>
       </ul>
     </div>
@@ -28,33 +44,42 @@ const Header = () => {
 
   return (
     <div className="fixed w-full bg-primary text-primaryText z-50">
-      <div className="container h-12 mx-auto flex items-center justify-between ">
+      <nav className="container h-12 mx-auto flex items-center justify-between ">
         <div className="brand-logo font-bold text-2xl px-3">Let's Cook</div>
 
-        <ul className="hidden menu-list sm:flex px-3">
-          <li className="menu-list-item  ">
-            <a href="" className="hover:border-b-4 px-4 py-2 ">
-              Home
-            </a>
+        <ul className="hidden menu-list lg:flex px-3">
+          <li className="menu-list-item   transition-transform px-4 hover:scale-95">
+            <NavLink
+              className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
+              to="/home"
+            >
+              <span className="text-lg px-4 ">Home</span>
+            </NavLink>
           </li>
-          <li className="menu-list-item  ">
-            <a href="" className="hover:border-b-4 px-4 py-2 ">
-              Get Recipe
-            </a>
+          <li className="menu-list-item transition-transform px-4 hover:scale-95 ">
+            <NavLink
+              className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
+              to="/get-recipe"
+            >
+              <span className="text-lg px-4 ">Get Recipe</span>
+            </NavLink>
           </li>
-          <li className="menu-list-item   ">
-            <a href="" className="hover:border-b-4 px-4 py-2 ">
-              Fun Facts
-            </a>
+          <li className="menu-list-item  hover:scale-95 transition-transform px-4">
+            <NavLink
+              className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
+              to="/###"
+            >
+              <span className="text-lg px-4">Fun Facts</span>
+            </NavLink>
           </li>
         </ul>
 
         {/* toggle button */}
-        <button onClick={toggleMobileMenu} className="sm:hidden px-3">
+        <button onClick={toggleMobileMenu} className="lg:hidden px-3">
           {showMobileMenu ? "Close" : "Menu"}
         </button>
         {showMobileMenu ? MobileMenu() : ""}
-      </div>
+      </nav>
     </div>
   );
 };
