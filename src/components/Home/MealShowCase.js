@@ -6,7 +6,7 @@ import meal4 from "../../assets/image/meal-4.png";
 
 const MealShowCase = () => {
   return (
-    <div className="container mx-auto min-h-screen my-16 px-3">
+    <section className="container mx-auto min-h-screen my-16 px-3">
       <h1 className="text-center text-4xl">What's is on your mind?</h1>
 
       <div className="my-16">
@@ -44,7 +44,7 @@ const MealShowCase = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

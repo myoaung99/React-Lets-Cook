@@ -15,7 +15,7 @@ const Hero = () => {
           </blockquote>
 
           <Link to="/get-recipe">
-            <button className="bg-primary py-2 px-6   hover:bg-primaryDark focus:ring-primaryDark focus:ring-offset-indigo-200 text-primaryText transition ease-in duration-200 font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full mt-5">
+            <button className="bg-primary py-2 px-6   hover:bg-primaryDark focus:ring-primaryDark focus:ring-offset-indigo-200 text-primaryWhiteText transition ease-in duration-200 font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full mt-5">
               Get Recipe
             </button>
           </Link>

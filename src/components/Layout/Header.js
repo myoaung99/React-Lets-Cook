@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const MobileMenu = () => {
   return (
     <div className="fixed mx-auto w-full top-12 left-0 bg-primary text-black xl:hidden">
-      <ul className="menu-list flex flex-col text-center items-stretch text-primaryText mb-2">
+      <ul className="menu-list flex flex-col text-center items-stretch text-primaryWhiteText mb-2">
         <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
           <NavLink
             className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
@@ -24,7 +24,7 @@ const MobileMenu = () => {
         <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
           <NavLink
             className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
-            to="/###"
+            to="/fun-facts"
           >
             Fun Facts
           </NavLink>
@@ -43,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed w-full bg-primary text-primaryText z-50">
+    <div className="fixed w-full bg-primary text-primaryWhiteText z-50">
       <nav className="container h-12 mx-auto flex items-center justify-between ">
         <div className="brand-logo font-bold text-2xl px-3">Let's Cook</div>
 
@@ -67,7 +67,7 @@ const Header = () => {
           <li className="menu-list-item  hover:scale-95 transition-transform px-4">
             <NavLink
               className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
-              to="/###"
+              to="/fun-facts"
             >
               <span className="text-lg px-4">Fun Facts</span>
             </NavLink>

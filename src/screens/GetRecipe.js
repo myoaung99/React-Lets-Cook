@@ -1,10 +1,13 @@
 import React from "react";
+import ResultRecipe from "../components/GetRecipe/ResultRecipe";
+import SearchRecipe from "../components/GetRecipe/SearchRecipe";
 
 const GetRecipe = () => {
   return (
-    <div>
-      <h1 className="pt-16 text-4xl">This is finding recipes section</h1>
-    </div>
+    <>
+      <SearchRecipe />
+      <ResultRecipe />
+    </>
   );
 };
 

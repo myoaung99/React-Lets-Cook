@@ -4,7 +4,8 @@ module.exports = {
     colors: {
       primary: "#6F9A70",
       primaryDark: "#4a5e4a",
-      primaryText: "#E9E9E9",
+      primaryWhiteText: "#E9E9E9",
+      primaryBlackText: "#2B2B2B",
     },
     extend: {
       backgroundImage: {
