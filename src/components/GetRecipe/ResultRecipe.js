@@ -7,17 +7,17 @@ const ResultRecipe = () => {
       <p className="text-xl text-center mb-10">Search result for : ...</p>
 
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 row-1">
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -28,17 +28,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -49,17 +49,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -70,17 +70,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -92,17 +92,17 @@ const ResultRecipe = () => {
           </div>
         </div>
 
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -113,17 +113,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -134,17 +134,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>
@@ -155,17 +155,17 @@ const ResultRecipe = () => {
             </div>
           </div>
         </div>
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-5">
           <div>
-            <img class="rounded-t-lg object-cover" src={mealImg} alt="" />
+            <img className="rounded-t-lg object-cover" src={mealImg} alt="" />
           </div>
 
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Chicken tagine makful
             </h5>
 
-            <p class="mb-4 text-sm text-primaryBlackText ">
+            <p className="mb-4 text-sm text-primaryBlackText ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
             </p>

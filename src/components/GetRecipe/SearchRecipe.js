@@ -12,19 +12,19 @@ const SearchRecipe = () => {
         </p>
       </div>
 
-      <div class="flex justify-center">
-        <div class="mb-3 xl:w-96">
-          <div class="input-group relative flex  items-stretch w-full mb-4">
+      <div className="flex justify-center">
+        <div className="mb-3 xl:w-96">
+          <div className="input-group relative flex  items-stretch w-full mb-4">
             <input
               id="searchText"
               type="search"
-              class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5  text-gray-700 bg-white border border-collapse border-primary transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-0 focus:outline-0 rounded-l-3xl"
+              className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5  text-gray-700 bg-white border border-collapse border-primary transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-0 focus:outline-0 rounded-l-3xl"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2"
             />
             <button
-              class="btn  px-6 py-2.5 bg-primary text-primaryWhiteText font-medium text-xs leading-tight uppercase  shadow-md hover:bg-primaryDark hover:shadow-lg focus:bg-primaryDark  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primarDark active:shadow-lg transition duration-150 ease-in-out flex items-center rounded-r-3xl"
+              className="btn  px-6 py-2.5 bg-primary text-primaryWhiteText font-medium text-xs leading-tight uppercase  shadow-md hover:bg-primaryDark hover:shadow-lg focus:bg-primaryDark  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primarDark active:shadow-lg transition duration-150 ease-in-out flex items-center rounded-r-3xl"
               type="button"
               id="button-addon2"
             >
@@ -33,7 +33,7 @@ const SearchRecipe = () => {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="search"
-                class="w-4"
+                className="w-4"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"

@@ -1,36 +1,55 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const MobileMenu = () => {
+const MobileMenu = ({ showMobileMenu, toggleMobileMenu }) => {
+  const toggleMenu = () => {
+    toggleMobileMenu();
+  };
   return (
-    <div className="fixed mx-auto w-full top-12 left-0 bg-primary text-black xl:hidden">
-      <ul className="menu-list flex flex-col text-center items-stretch text-primaryWhiteText mb-2">
-        <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <NavLink
-            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
-            to="/home"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <NavLink
-            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
-            to="/get-recipe"
-          >
-            Get Recipe
-          </NavLink>
-        </li>
-        <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
-          <NavLink
-            className={(nav) => (nav.isActive ? " hover:bg-primaryDark " : "")}
-            to="/fun-facts"
-          >
-            Fun Facts
-          </NavLink>
-        </li>
-      </ul>
-    </div>
+    <>
+      {!showMobileMenu && (
+        <div className="fixed mx-auto w-full top-12 left-0 bg-primary text-black xl:hidden">
+          <ul className="menu-list flex flex-col text-center items-stretch text-primaryWhiteText mb-2">
+            <NavLink
+              onClick={toggleMenu}
+              className={(nav) =>
+                nav.isActive ? " hover:bg-primaryDark " : ""
+              }
+              to="/home"
+            >
+              {" "}
+              <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
+                Home{" "}
+              </li>
+            </NavLink>
+
+            <NavLink
+              onClick={toggleMenu}
+              className={(nav) =>
+                nav.isActive ? " hover:bg-primaryDark " : ""
+              }
+              to="/get-recipe"
+            >
+              <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
+                Get Recipe
+              </li>
+            </NavLink>
+
+            <NavLink
+              onClick={toggleMenu}
+              className={(nav) =>
+                nav.isActive ? " hover:bg-primaryDark " : ""
+              }
+              to=""
+            >
+              <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
+                Fun Facts
+              </li>
+            </NavLink>
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 
@@ -67,7 +86,7 @@ const Header = () => {
           <li className="menu-list-item  hover:scale-95 transition-transform px-4">
             <NavLink
               className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
-              to="/fun-facts"
+              to="/"
             >
               <span className="text-lg px-4">Fun Facts</span>
             </NavLink>
@@ -78,7 +97,7 @@ const Header = () => {
         <button onClick={toggleMobileMenu} className="lg:hidden px-3">
           {showMobileMenu ? "Close" : "Menu"}
         </button>
-        {showMobileMenu ? MobileMenu() : ""}
+        {showMobileMenu ? MobileMenu(showMobileMenu, toggleMobileMenu) : ""}
       </nav>
     </div>
   );

@@ -5,7 +5,7 @@ import heroImg from "./../../assets/image/heroImg.png";
 const Hero = () => {
   return (
     <main className="bg-header-bg ">
-      <div className="container pb-16 sm:pb-0 pt-12 mx-auto grid lg:grid-cols-2 sm:min-h-screen items-center px-5">
+      <div className="container pb-16 sm:pb-0 pt-12 mx-auto grid xl:grid-cols-2 sm:min-h-screen items-center px-5">
         <div className="w-4/5 mx-auto order-2 ">
           <blockquote className="text-4xl md:text-5xl header-quote italic font-bold leading-normal">
             <span className="quote-symbol ">" </span>Part of the secret of{" "}
