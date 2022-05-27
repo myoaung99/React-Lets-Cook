@@ -40,7 +40,7 @@ const MobileMenu = ({ showMobileMenu, toggleMobileMenu }) => {
               className={(nav) =>
                 nav.isActive ? " hover:bg-primaryDark " : ""
               }
-              to=""
+              to="/###"
             >
               <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
                 Fun Facts
@@ -86,7 +86,7 @@ const Header = () => {
           <li className="menu-list-item  hover:scale-95 transition-transform px-4">
             <NavLink
               className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
-              to="/"
+              to="/###"
             >
               <span className="text-lg px-4">Fun Facts</span>
             </NavLink>

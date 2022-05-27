@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 
-const SearchRecipe = () => {
+const SearchRecipe = (props) => {
+  const searchRef = useRef();
+
+  const submitHandaler = (event) => {
+    event.preventDefault();
+
+    const searchText = searchRef.current.value;
+    if (searchText.trim().length === 0) {
+      return;
+    }
+    props.onSearch(searchText);
+    searchRef.current.value = " ";
+  };
+
   return (
-    <section className="pt-12  container mx-auto text-center">
+    <section className="pt-12 container mx-auto text-center">
       <div className="mt-14 mb-10">
         <h4 className="text-2xl md:text-3xl mb-3 font-bold">
           Searching new dishes to cook?
@@ -14,8 +27,12 @@ const SearchRecipe = () => {
 
       <div className="flex justify-center">
         <div className="mb-3 xl:w-96">
-          <div className="input-group relative flex  items-stretch w-full mb-4">
+          <form
+            onSubmit={submitHandaler}
+            className="input-group relative flex  items-stretch w-full mb-4"
+          >
             <input
+              ref={searchRef}
               id="searchText"
               type="search"
               className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5  text-gray-700 bg-white border border-collapse border-primary transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-0 focus:outline-0 rounded-l-3xl"
@@ -25,7 +42,7 @@ const SearchRecipe = () => {
             />
             <button
               className="btn  px-6 py-2.5 bg-primary text-primaryWhiteText font-medium text-xs leading-tight uppercase  shadow-md hover:bg-primaryDark hover:shadow-lg focus:bg-primaryDark  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primarDark active:shadow-lg transition duration-150 ease-in-out flex items-center rounded-r-3xl"
-              type="button"
+              type="submit"
               id="button-addon2"
             >
               <svg
@@ -44,7 +61,7 @@ const SearchRecipe = () => {
                 ></path>
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>
