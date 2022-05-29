@@ -21,9 +21,9 @@ const Hero = () => {
           </Link>
         </div>
 
-        <div className="order-1  mx-auto sm:w-3/4 xl:w-auto px-6 lg:px-0">
+        <div className="order-1 mx-auto sm:w-3/4 xl:w-auto px-6 lg:px-0">
           <img
-            className="object-cover py-16 sm:py-0"
+            className="object-cover py-16 sm:py-0 "
             src={heroImg}
             alt="beautifully degorated delicious meal"
           />

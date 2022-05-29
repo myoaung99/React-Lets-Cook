@@ -32,6 +32,7 @@ const SearchRecipe = (props) => {
             className="input-group relative flex  items-stretch w-full mb-4"
           >
             <input
+              autoFocus
               ref={searchRef}
               id="searchText"
               type="search"

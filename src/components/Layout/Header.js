@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MobileMenu = ({ showMobileMenu, toggleMobileMenu }) => {
   const toggleMenu = () => {
@@ -40,7 +40,7 @@ const MobileMenu = ({ showMobileMenu, toggleMobileMenu }) => {
               className={(nav) =>
                 nav.isActive ? " hover:bg-primaryDark " : ""
               }
-              to="/###"
+              to="/fun-facts"
             >
               <li className="menu-list-item p-2 mx-2 shadow-lg hover:bg-primaryDark cursor-pointer border-collapse my-1">
                 Fun Facts
@@ -64,7 +64,9 @@ const Header = () => {
   return (
     <div className="fixed w-full bg-primary text-primaryWhiteText z-50">
       <nav className="container h-12 mx-auto flex items-center justify-between ">
-        <div className="brand-logo font-bold text-2xl px-3">Let's Cook</div>
+        <div className="brand-logo font-bold text-2xl px-3">
+          <Link to="/">Let's Cook</Link>
+        </div>
 
         <ul className="hidden menu-list lg:flex px-3">
           <li className="menu-list-item   transition-transform px-4 hover:scale-95">
@@ -86,7 +88,7 @@ const Header = () => {
           <li className="menu-list-item  hover:scale-95 transition-transform px-4">
             <NavLink
               className={(nav) => (nav.isActive ? " border-b-4 pb-2 " : "")}
-              to="/###"
+              to="/fun-facts"
             >
               <span className="text-lg px-4">Fun Facts</span>
             </NavLink>

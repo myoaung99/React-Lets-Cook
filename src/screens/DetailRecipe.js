@@ -1,9 +1,12 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
 import RecipeInstruction from "../components/DetailRecipe/RecipeInstruction";
-import meals from "./../assets/mealSuggestion/meals.json";
 
 const DetailRecipe = () => {
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo({ behavior: "smooth", top: "0px" });
+  }, []);
+
   return (
     <>
       <RecipeInstruction />

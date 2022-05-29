@@ -1,72 +1,30 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "./../UI/LoadingSpinner";
-
-const initialState = {
-  instructions: null,
-  isLoading: true,
-  error: null,
-};
-
-const recipeReducer = (state, action) => {
-  if (action.type === "SUCCESS") {
-    return {
-      instructions: action.payload,
-      isLoading: false,
-      error: null,
-    };
-  } else if (action.type === "ERROR") {
-    return {
-      instructions: null,
-      isLoading: false,
-      error: action.payload,
-    };
-  }
-
-  return initialState;
-};
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRecipeData } from "../../store/recipes-actions";
 
 const RecipeInstruction = () => {
+  // get id from route
   const params = useParams();
   const id = params.recipeId;
 
-  const [recipeData, dispatchRecipeData] = useReducer(
-    recipeReducer,
-    initialState
-  );
+  const dispatch = useDispatch();
 
+  const recipeData = useSelector((state) => state.recipe);
+
+  // fetch recipe base on id
   useEffect(() => {
-    const getData = async () => {
-      const sendHttp = async () => {
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
-        );
+    dispatch(fetchRecipeData(id));
+  }, [dispatch, id]);
 
-        if (!response.ok) {
-          throw new Error("Couldn't fetch.");
-        }
-
-        const responseData = await response.json();
-        return responseData;
-      };
-
-      try {
-        const data = await sendHttp();
-        dispatchRecipeData({ type: "SUCCESS", payload: data.meals });
-      } catch (error) {
-        dispatchRecipeData({ type: "ERROR", payload: error.message });
-      }
-    };
-
-    getData();
-  }, [id]);
-
+  // re orgainze responsed paragraph
+  // break sentences through STEP keywords
   const transformPara = (str) => {
     const paraArray = str.split("STEP");
     return paraArray.map((p) => {
       if (p && p.length > 20) {
         const firstL = p.charAt(1);
-        console.log(firstL);
 
         return (
           <p className="mb-6 text-primaryBlackText" key={firstL}>
@@ -74,20 +32,24 @@ const RecipeInstruction = () => {
           </p>
         );
       }
+
+      return null;
     });
   };
 
-  function getId(url) {
-    var regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  // convert normal youtube links to embed links
+  function getYoutubeId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     var match = url.match(regExp);
 
-    if (match && match[2].length == 11) {
+    if (match && match[2].length === 11) {
       return match[2];
     } else {
       return "error";
     }
   }
+
+  const recipe = recipeData.recipes[0];
 
   let content = (
     <div className="w-full h-screen flex justify-center items-center">
@@ -95,7 +57,7 @@ const RecipeInstruction = () => {
     </div>
   );
 
-  if (!recipeData.isLoading && recipeData.error) {
+  if (!recipeData.isLoading && recipeData.errors) {
     content = (
       <p className="text-xl text-red-800 mt-10 min-h-screen">
         Something went wrong. Try to refresh again!
@@ -103,33 +65,38 @@ const RecipeInstruction = () => {
     );
   }
 
-  if (!recipeData.isLoading && !recipeData.error) {
+  if (!recipeData.isLoading && !recipeData.errors) {
     content = (
       <>
         <h4 className="mt-6 mb-10 text-2xl ">
-          Instructions for cooking{" "}
+          Instructions for cooking
           <a href="#vd" className="font-semibold underline underline-offset-2">
-            {recipeData.instructions[0].strMeal}
+            {recipe.strMeal}
           </a>
         </h4>
+
+        {/* image */}
         <div className="flex justify-center mb-10">
           <img
             className="w-40 rounded-sm shadow-md border-l-4 border-primary border-dashed"
-            src={recipeData.instructions[0].strMealThumb}
+            src={recipe.strMealThumb}
             alt="meal"
           />
-        </div>{" "}
-        <div className="md:columns-3 gap-6 text-justify ">
-          {transformPara(recipeData.instructions[0].strInstructions)}
         </div>
+
+        {/* paragraph */}
+        <div className="md:columns-3 gap-6 text-justify ">
+          {transformPara(recipe.strInstructions)}
+        </div>
+
+        {/* video */}
         <div className="py-12 " id="vd">
           <iframe
             width="716"
             height="403"
             className=" w-full "
             src={
-              "https://www.youtube.com/embed/" +
-              getId(recipeData.instructions[0].strYoutube)
+              "https://www.youtube.com/embed/" + getYoutubeId(recipe.strYoutube)
             }
             title="YouTube video player"
             frameBorder="0"
