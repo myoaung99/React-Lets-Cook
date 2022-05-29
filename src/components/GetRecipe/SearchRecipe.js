@@ -6,7 +6,7 @@ const SearchRecipe = (props) => {
   const submitHandaler = (event) => {
     event.preventDefault();
 
-    const searchText = searchRef.current.value;
+    const searchText = searchRef.current.value.trim();
     if (searchText.trim().length === 0) {
       return;
     }
