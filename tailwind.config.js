@@ -9,7 +9,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "header-bg": "url('/src/assets/image/header-bg.png')",
+        "header-bg": "url('/src/assets/image/header-bg.webp')",
       },
     },
   },

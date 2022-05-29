@@ -11,6 +11,7 @@ const initialState = {
   recipes: null,
   isLoading: false,
   error: null,
+  fetched: false,
 };
 
 // fetch recipe reducer logic
@@ -28,6 +29,7 @@ const recipeReducer = (state, action) => {
       recipes: action.payload,
       isLoading: false,
       errors: null,
+      fetched: true,
     };
   }
 
@@ -36,6 +38,7 @@ const recipeReducer = (state, action) => {
       recipes: null,
       isLoading: false,
       errors: action.payload,
+      fetched: true,
     };
   }
   return initialState;
@@ -74,6 +77,8 @@ const GetRecipe = () => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
         );
 
+        console.log(response);
+
         if (!response.ok) {
           throw new Error("Couldn't fetch.");
         }
@@ -84,6 +89,7 @@ const GetRecipe = () => {
 
       try {
         const data = await sendHttp();
+
         dispatchMealsState({ type: "SUCCESS", payload: data.meals });
       } catch (error) {
         dispatchMealsState({ type: "ERROR", payload: error.message });
@@ -94,7 +100,9 @@ const GetRecipe = () => {
   }, [searchText]);
 
   let content = (
-    <p className="text-xl text-center text-gray-500">Something on your mind?</p>
+    <div className="w-full h-full flex justify-center items-center">
+      <p className="text-xl text-center text-gray-500">Try something new !!</p>
+    </div>
   );
 
   if (mealsState.errors && !mealsState.isLoading) {
@@ -109,6 +117,14 @@ const GetRecipe = () => {
     content = (
       <div className="w-full h-full flex justify-center items-center">
         <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (mealsState.fetched && !mealsState.recipes) {
+    content = (
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <p className="text-xl text-center text-gray-500">No such recipes </p>
       </div>
     );
   }

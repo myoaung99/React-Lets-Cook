@@ -11,7 +11,7 @@ const SearchRecipe = (props) => {
       return;
     }
     props.onSearch(searchText);
-    searchRef.current.value = " ";
+    searchRef.current.value = "";
   };
 
   return (
@@ -33,18 +33,16 @@ const SearchRecipe = (props) => {
           >
             <input
               autoFocus
+              autoComplete="off"
+              type="search"
               ref={searchRef}
               id="searchText"
-              type="search"
-              className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5  text-gray-700 bg-white border border-collapse border-primary transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-0 focus:outline-0 rounded-l-3xl"
+              className=" relative flex-auto min-w-0 block w-full px-3 py-1.5  text-gray-700 bg-white border border-collapse border-primary transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  focus:outline-0 rounded-l-3xl"
               placeholder="Search"
-              aria-label="Search"
-              aria-describedby="button-addon2"
             />
             <button
               className="btn  px-6 py-2.5 bg-primary text-primaryWhiteText font-medium text-xs leading-tight uppercase  shadow-md hover:bg-primaryDark hover:shadow-lg focus:bg-primaryDark  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primarDark active:shadow-lg transition duration-150 ease-in-out flex items-center rounded-r-3xl"
               type="submit"
-              id="button-addon2"
             >
               <svg
                 aria-hidden="true"
