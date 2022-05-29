@@ -69,7 +69,7 @@ const RecipeInstruction = () => {
     content = (
       <>
         <h4 className="mt-6 mb-10 text-2xl ">
-          Instructions for cooking
+          Instructions for cooking{" "}
           <a href="#vd" className="font-semibold underline underline-offset-2">
             {recipe.strMeal}
           </a>
