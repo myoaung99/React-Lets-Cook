@@ -2,6 +2,8 @@ import React, { useEffect, useReducer, useState, lazy, Suspense } from "react";
 import RecipeCard from "../components/GetRecipe/RecipeCard";
 import SearchRecipe from "../components/GetRecipe/SearchRecipe";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
+import { useNavigate, useLocation } from "react-router-dom";
+import * as QueryString from "query-string";
 
 // lazylaoding
 const Pagination = lazy(() => import("../components/UI/Pagination"));
@@ -47,6 +49,11 @@ const recipeReducer = (state, action) => {
 const GetRecipe = () => {
   const [searchText, setSearchText] = useState();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const parsed = QueryString.parse(location.search);
+
   // fetch meal local state
   const [mealsState, dispatchMealsState] = useReducer(
     recipeReducer,
@@ -71,10 +78,10 @@ const GetRecipe = () => {
   }, []);
 
   useEffect(() => {
-    if (searchText) {
-      window.sessionStorage.setItem("search", searchText);
+    if (parsed.search) {
+      window.sessionStorage.setItem("search", parsed.search);
     }
-  }, [searchText]);
+  }, [parsed]);
 
   // search လုပ်မယ့်စာ ရတာနဲ့ re-evaluate
   useEffect(() => {
@@ -83,6 +90,8 @@ const GetRecipe = () => {
       if (!searchText) {
         return;
       }
+
+      navigate(`?search=${searchText}`);
 
       const sendHttp = async () => {
         dispatchMealsState({ type: "LOADING" });
