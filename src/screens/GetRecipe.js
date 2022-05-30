@@ -63,6 +63,19 @@ const GetRecipe = () => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
   }, []);
 
+  useEffect(() => {
+    const searchData = window.sessionStorage.getItem("search");
+    if (searchData) {
+      setSearchText(searchData);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchText) {
+      window.sessionStorage.setItem("search", searchText);
+    }
+  }, [searchText]);
+
   // search လုပ်မယ့်စာ ရတာနဲ့ re-evaluate
   useEffect(() => {
     const getData = async () => {
@@ -77,8 +90,6 @@ const GetRecipe = () => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
         );
 
-        console.log(response);
-
         if (!response.ok) {
           throw new Error("Couldn't fetch.");
         }
@@ -89,7 +100,6 @@ const GetRecipe = () => {
 
       try {
         const data = await sendHttp();
-
         dispatchMealsState({ type: "SUCCESS", payload: data.meals });
       } catch (error) {
         dispatchMealsState({ type: "ERROR", payload: error.message });
@@ -133,7 +143,7 @@ const GetRecipe = () => {
     content = (
       <>
         <p className="text-xl text-center mb-10">
-          Search result for :{" "}
+          Searched results for :{" "}
           <span className="text-primary font-bold">{searchText}</span>
         </p>
 
