@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+![Screenshot 2022-06-14 192643](https://user-images.githubusercontent.com/50990639/173582683-95915407-c36f-4b7a-a4bb-2b8c7e431b59.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ဒီ Project လေးက API မှ ရလာတဲ့ Data တွေကို အသုံးပြုတဲ့ front-end (React) project ဖြစ်ပါတယ်။ နာမည်ကိုတော့ Let’s Cook လို့ပေးထားပါတယ်။
 
-## Available Scripts
+ဒီ SPA app ထဲမှာ ဟင်းပွဲရဲ့ အဓိကပါဝင်ပစ္စည်းကို ရိုက်ရှာလိုက်တာနဲ့ နိုင်ငံတကာမှာ နေ့စဥ်ချက်ပြုတ်နေကြတဲ့ ဟင်းချက်နည်းတွေကို ရှာလို့ရမှာပဲဖြစ်ပါတယ်။ text နဲ့ရော video နဲ့ပါ ကြည့်လို့ရမှာ ဖြစ်ပါတယ်  
 
-In the project directory, you can run:
+Routing ကိုတော့ react-router v6 ကိုပဲ အသုံးပြုထားပါတယ်။ Styling ကတော့ tailwind ပါ။  
 
-### `npm start`
+React သင်နေရင်း router အပိုင်းသင်အပြီးမှာ လက်တွေ့ project တစ်ခုလုပ်ဖို့ စဥ်းစားရင်း လုပ်ဖြစ်သွားတာပါ။ form validation တွေ၊ global theme state တွေပါ နောက်ကျထည့်ဖို့ စဥ်းစားထားပါတယ်။ ယူသုံးထားတဲ့ Api ကတော့ mealdb api ပါ။ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+State management အနေနဲ့ useState နဲ့ useReducer ကို အများဆုံးသုံးထားပါတယ်။ နောက်ဆုံးပြီးသွားတော့ global state management တခုလောက်ပါ‌အောင် သုံးချင်လို့ recipe ရှာတဲ့ Component မှာ redux toolkit ကို သုံးလိုက်ပါတယ်။ 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+နောက်ကျ context api နဲ့ပဲဖြစ်ဖြစ် theme feature လေး ထည့်ဖို့ စိတ်ကူးထားပါတယ်  
+အနည်းငယ်အခက်တွေ့တဲ့နေရာကတော့ pagination ပါ။ သူ့အတိုင်းက သိပ်မခက်ပေမဲ့ ကိုယ်လိုချင်သလို ရ‌အောင် နည်းနည်းတော့ စဥ်းစားလိုက်ရပါတယ်။ ဥပမာ-ပြစရာ item မရှိတော့ရင် pagination နံပါတ်တွေ ဆက်နိပ်လို့ မရအောင်မျိုးပါ။  
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Live Demo - https://lets-cook-71992.web.app/
