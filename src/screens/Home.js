@@ -6,6 +6,7 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
   }, []);
+
   return (
     <>
       <Hero />
