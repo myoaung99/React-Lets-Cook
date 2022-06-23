@@ -4,9 +4,21 @@ import SearchRecipe from "../components/GetRecipe/SearchRecipe";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import { useNavigate, useLocation } from "react-router-dom";
 import * as QueryString from "query-string";
-
+import { motion } from "framer-motion";
 // lazylaoding
 const Pagination = lazy(() => import("../components/UI/Pagination"));
+
+const getRecipeVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "100vw",
+  },
+};
 
 // fetch recipe initial state
 const initialState = {
@@ -169,7 +181,12 @@ const GetRecipe = () => {
   }
 
   return (
-    <>
+    <motion.div
+      variants={getRecipeVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <SearchRecipe onSearch={getSearchText} />
       <section className="container mx-auto  mt-10 min-h-screen">
         <Suspense
@@ -181,7 +198,7 @@ const GetRecipe = () => {
         ></Suspense>
         {content}
       </section>
-    </>
+    </motion.div>
   );
 };
 
