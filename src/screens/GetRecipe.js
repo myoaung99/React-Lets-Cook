@@ -61,11 +61,6 @@ const recipeReducer = (state, action) => {
 const GetRecipe = () => {
   const [searchText, setSearchText] = useState();
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const parsed = QueryString.parse(location.search);
-
   // fetch meal local state
   const [mealsState, dispatchMealsState] = useReducer(
     recipeReducer,
@@ -82,19 +77,6 @@ const GetRecipe = () => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
   }, []);
 
-  useEffect(() => {
-    const searchData = window.sessionStorage.getItem("search");
-    if (searchData) {
-      setSearchText(searchData);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (parsed.search) {
-      window.sessionStorage.setItem("search", parsed.search);
-    }
-  }, [parsed]);
-
   // search လုပ်မယ့်စာ ရတာနဲ့ re-evaluate
   useEffect(() => {
     const getData = async () => {
@@ -102,8 +84,6 @@ const GetRecipe = () => {
       if (!searchText) {
         return;
       }
-
-      navigate(`?search=${searchText}`);
 
       const sendHttp = async () => {
         dispatchMealsState({ type: "LOADING" });
@@ -179,6 +159,8 @@ const GetRecipe = () => {
       </>
     );
   }
+
+  console.log(mealsState.recipes);
 
   return (
     <motion.div
