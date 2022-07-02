@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingSpinner from "./../UI/LoadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipeData } from "../../store/recipes-actions";
@@ -68,12 +68,23 @@ const RecipeInstruction = () => {
   if (!recipeData.isLoading && !recipeData.errors) {
     content = (
       <>
-        <h4 className="mt-6 mb-10 text-2xl ">
-          Instructions for cooking{" "}
-          <a href="#vd" className="font-semibold underline underline-offset-2">
-            {recipe.strMeal}
-          </a>
-        </h4>
+        <div className="flex items-center justify-between">
+          <h4 className="mt-6 mb-10 text-2xl ">
+            Instructions for cooking{" "}
+            <a
+              href="#vd"
+              className="font-semibold underline underline-offset-2"
+            >
+              {recipe.strMeal}
+            </a>
+          </h4>
+
+          <Link to="/get-recipe">
+            <button className="py-2 px-4 bg-primary hover:bg-primaryDark rounded text-white">
+              Go back
+            </button>
+          </Link>
+        </div>
 
         {/* image */}
         <div className="flex justify-center mb-10">
@@ -104,6 +115,12 @@ const RecipeInstruction = () => {
             allowFullScreen
           ></iframe>
         </div>
+
+        <Link to="/get-recipe">
+          <button className="w-full py-2 px-4 bg-primary hover:bg-primaryDark rounded text-white">
+            Go back
+          </button>
+        </Link>
       </>
     );
   }
