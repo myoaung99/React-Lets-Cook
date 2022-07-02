@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 
 const MobileMenu = ({ showMobileMenu, toggleMobileMenu }) => {
   const toggleMenu = () => {
+    console.log(toggleMobileMenu);
+    console.log(showMobileMenu);
     toggleMobileMenu();
   };
   return (
