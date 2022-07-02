@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import RecipeInstruction from "../components/DetailRecipe/RecipeInstruction";
 
 const detailVariants = {
@@ -15,6 +16,8 @@ const detailVariants = {
 };
 
 const DetailRecipe = () => {
+  const navigate = useNavigate();
+
   // scroll to top
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });

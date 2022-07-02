@@ -1,12 +1,14 @@
-import React, { useEffect, useReducer, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import RecipeCard from "../components/GetRecipe/RecipeCard";
 import SearchRecipe from "../components/GetRecipe/SearchRecipe";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import { useNavigate, useLocation } from "react-router-dom";
-import * as QueryString from "query-string";
 import { motion } from "framer-motion";
+import { useQuery } from "react-query";
 // lazylaoding
 const Pagination = lazy(() => import("../components/UI/Pagination"));
+
+// `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
 
 const getRecipeVariants = {
   hidden: {
@@ -20,95 +22,46 @@ const getRecipeVariants = {
   },
 };
 
-// fetch recipe initial state
-const initialState = {
-  recipes: null,
-  isLoading: false,
-  error: null,
-  fetched: false,
-};
-
-// fetch recipe reducer logic
-const recipeReducer = (state, action) => {
-  if (action.type === "LOADING") {
-    return {
-      recipes: null,
-      isLoading: true,
-      errors: null,
-    };
+const fetchMeals = async ({ queryKey }) => {
+  const [key, { searchText }] = queryKey;
+  console.log(searchText);
+  if (searchText) {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
+    );
+    return res.json();
   }
-
-  if (action.type === "SUCCESS") {
-    return {
-      recipes: action.payload,
-      isLoading: false,
-      errors: null,
-      fetched: true,
-    };
-  }
-
-  if (action.type === "ERROR") {
-    return {
-      recipes: null,
-      isLoading: false,
-      errors: action.payload,
-      fetched: true,
-    };
-  }
-  return initialState;
 };
 
 const GetRecipe = () => {
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState(null);
 
-  // fetch meal local state
-  const [mealsState, dispatchMealsState] = useReducer(
-    recipeReducer,
-    initialState
-  );
+  const { data, status } = useQuery(["meals", { searchText }], fetchMeals);
+
+  console.log(data);
 
   // get search text from child component through props
   const getSearchText = (text) => {
     setSearchText(text);
   };
 
+  console.log("search state", searchText);
+
+  useEffect(() => {
+    if (searchText) {
+      window.localStorage.setItem("MEAL_SEARCH_TEXT", searchText);
+    }
+  }, [searchText]);
+
+  useEffect(() => {
+    const search = window.localStorage.getItem("MEAL_SEARCH_TEXT");
+    if (search !== null) setSearchText(search);
+  }, []);
+
   // scroll to top
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
   }, []);
-
-  // search လုပ်မယ့်စာ ရတာနဲ့ re-evaluate
-  useEffect(() => {
-    const getData = async () => {
-      // for initial evaluation
-      if (!searchText) {
-        return;
-      }
-
-      const sendHttp = async () => {
-        dispatchMealsState({ type: "LOADING" });
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
-        );
-
-        if (!response.ok) {
-          throw new Error("Couldn't fetch.");
-        }
-
-        const responseData = await response.json();
-        return responseData;
-      };
-
-      try {
-        const data = await sendHttp();
-        dispatchMealsState({ type: "SUCCESS", payload: data.meals });
-      } catch (error) {
-        dispatchMealsState({ type: "ERROR", payload: error.message });
-      }
-    };
-
-    getData();
-  }, [searchText]);
 
   let content = (
     <div className="w-full h-full flex justify-center items-center">
@@ -116,31 +69,19 @@ const GetRecipe = () => {
     </div>
   );
 
-  if (mealsState.errors && !mealsState.isLoading) {
-    content = (
-      <p className="text-2xl  font-bold text-center">
-        Couldn't Fetch Meals. Try refresh again!
-      </p>
-    );
-  }
-
-  if (mealsState.isLoading) {
+  if (status === "loading") {
     content = (
       <div className="w-full h-full flex justify-center items-center">
         <LoadingSpinner />
       </div>
     );
-  }
-
-  if (mealsState.fetched && !mealsState.recipes) {
+  } else if (status === "error") {
     content = (
-      <div className="w-full h-full flex flex-col justify-center items-center">
-        <p className="text-xl text-center text-gray-500">No such recipes </p>
-      </div>
+      <p className="text-2xl  font-bold text-center">
+        Couldn't Fetch Meals. Try refresh again!
+      </p>
     );
-  }
-
-  if (mealsState.recipes && !mealsState.errors) {
+  } else if (status === "success" && data && data.meals) {
     content = (
       <>
         <p className="text-xl text-center mb-10">
@@ -150,7 +91,7 @@ const GetRecipe = () => {
 
         {/* <RecipeCard /> */}
         <Pagination
-          data={mealsState.recipes}
+          data={data.meals}
           RenderComponent={RecipeCard}
           title="meals"
           pageLimit={3}
@@ -159,8 +100,6 @@ const GetRecipe = () => {
       </>
     );
   }
-
-  console.log(mealsState.recipes);
 
   return (
     <motion.div
