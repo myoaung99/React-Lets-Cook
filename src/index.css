@@ -8,8 +8,8 @@
 }
 
 @font-face {
-  font-family: "Gothic";
-  src: url("/src//assets/fonts/gothic.ttf");
+  font-family: "Poppins";
+  src: url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 }
 
 @layer base {
@@ -18,7 +18,7 @@
   }
 
   .quote-symbol {
-    font-family: "Gothic";
+    font-family: "Poppins", sans-serif;
   }
   ::-webkit-scrollbar {
     width: 10px;

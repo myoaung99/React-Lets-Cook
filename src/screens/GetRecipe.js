@@ -43,14 +43,10 @@ const GetRecipe = () => {
 
   const { data, status } = useQuery(["meals", { searchText }], fetchMeals);
 
-  console.log(data);
-
   // get search text from child component through props
   const getSearchText = (text) => {
     setSearchText(text);
   };
-
-  console.log("search state", searchText);
 
   useEffect(() => {
     if (searchText) {
