@@ -3,18 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Celibri";
-  src: url("/src//assets/fonts/calibri.ttf");
-}
-
-@font-face {
   font-family: "Poppins";
   src: url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 }
 
 @layer base {
   .header-quote {
-    font-family: "Celibri";
+    font-family: "Poppins", sans-serif;
   }
 
   .quote-symbol {
