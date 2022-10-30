@@ -51,7 +51,7 @@ const GetRecipe = () => {
   useEffect(() => {
     if (searchText) {
       // window.localStorage.setItem("MEAL_SEARCH_TEXT", searchText);
-      setLocalStorageWithExpiry("MEAL_SEARCH_TEXT", searchText, 100000);
+      setLocalStorageWithExpiry("MEAL_SEARCH_TEXT", searchText, 1000000);
     }
   }, [searchText]);
 
