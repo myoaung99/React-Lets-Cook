@@ -5,6 +5,12 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useQuery } from "react-query";
+import { setCookie, getAllCookies, removeCookie } from "react-cookie";
+import {
+  getLocalStorageWithExpiry,
+  setLocalStorageWithExpiry,
+} from "../services/local-storage";
+
 // lazylaoding
 const Pagination = lazy(() => import("../components/UI/Pagination"));
 
@@ -24,7 +30,6 @@ const getRecipeVariants = {
 
 const fetchMeals = async ({ queryKey }) => {
   const [key, { searchText }] = queryKey;
-  console.log(searchText);
   if (searchText) {
     const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`
@@ -49,12 +54,13 @@ const GetRecipe = () => {
 
   useEffect(() => {
     if (searchText) {
-      window.localStorage.setItem("MEAL_SEARCH_TEXT", searchText);
+      // window.localStorage.setItem("MEAL_SEARCH_TEXT", searchText);
+      setLocalStorageWithExpiry("MEAL_SEARCH_TEXT", searchText, 100000);
     }
   }, [searchText]);
 
   useEffect(() => {
-    const search = window.localStorage.getItem("MEAL_SEARCH_TEXT");
+    const search = getLocalStorageWithExpiry("MEAL_SEARCH_TEXT");
     if (search !== null) setSearchText(search);
   }, []);
 

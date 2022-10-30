@@ -12,6 +12,7 @@
     "framer-motion": "^6.3.12",
     "query-string": "^7.1.1",
     "react": "^18.1.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
     "react-hook-inview": "^4.5.0",
     "react-query": "^3.39.1",

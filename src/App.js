@@ -1,12 +1,11 @@
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import Home from "./screens/Home";
 import Layout from "./components/Layout/Layout";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
-
 import { AnimatePresence } from "framer-motion";
 
 // lazyloading
@@ -16,6 +15,7 @@ const FunFacts = lazy(() => import("./screens/FunFacts"));
 
 function App() {
   const location = useLocation();
+
   return (
     <>
       <Provider store={store}>
