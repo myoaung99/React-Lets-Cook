@@ -13,4 +13,4 @@ State management အနေနဲ့ useState နဲ့ useReducer ကို အ�
 နောက်ကျ context api နဲ့ပဲဖြစ်ဖြစ် theme feature လေး ထည့်ဖို့ စိတ်ကူးထားပါတယ်  
 အနည်းငယ်အခက်တွေ့တဲ့နေရာကတော့ pagination ပါ။ သူ့အတိုင်းက သိပ်မခက်ပေမဲ့ ကိုယ်လိုချင်သလို ရ‌အောင် နည်းနည်းတော့ စဥ်းစားလိုက်ရပါတယ်။ ဥပမာ-ပြစရာ item မရှိတော့ရင် pagination နံပါတ်တွေ ဆက်နိပ်လို့ မရအောင်မျိုးပါ။  
 
-Live Demo - https://lets-cook-71992.web.app/
+Live Demo - https://lets-cook-bay.vercel.app/
